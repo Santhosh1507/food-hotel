@@ -11,10 +11,10 @@ const Cart = () => {
   const proceedToCheckout = () => {
     setIsOrdering(true);
     if (getTotalCartAmount() === 0) {
-      alert("Please select items before proceeding to checkout.");
+      alert("Please select items search.");
       setIsOrdering(false);
       setTimeout(() => {
-        window.location.href = '/';
+        window.location.href = '/search';
       }, 1000)
     } else {
       setTimeout(() => {
