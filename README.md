@@ -4,7 +4,7 @@ I'm craete My Food Hotel
 
 ## 🔗 Demo
 
-url: https://santhosh-portfolio-web.netlify.app/
+url: https://food-hotel-sameer.netlify.app/
 
 ## 🛠 Installation
 
@@ -12,13 +12,17 @@ Install my-project with npm
 
 1. To install
 ```bash
-  git clone https://github.com/Santhosh1507/Portfolio.git
+  git clone https://github.com/Santhosh1507/food-hotel.git
 ```
 2. install package
 ```bash
+  cd food-hotel
+```
+3. install package
+```bash
   npm install 
 ```
-3. To install
+4. To install
 ```bash
   npm run dev
 ```
