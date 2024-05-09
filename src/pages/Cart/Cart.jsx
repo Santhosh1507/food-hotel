@@ -1,12 +1,27 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import "./Cart.css";
 import { StoreContext } from "../../context/StoreContext";
 import { useNavigate } from "react-router-dom";
 
 const Cart = () => {
+  const [isOrdering, setIsOrdering] = useState(false);
   const { cartItems, food_list, removeFromCart, getTotalCartAmount } = useContext(StoreContext);
 
   const navigate = useNavigate();
+  const proceedToCheckout = () => {
+    setIsOrdering(true);
+    if (getTotalCartAmount() === 0) {
+      alert("Please select items before proceeding to checkout.");
+      setIsOrdering(false);
+      setTimeout(() => {
+        window.location.href = '/';
+      }, 1000)
+    } else {
+      setTimeout(() => {
+        navigate('/order');
+      }, 3000);
+    }
+  };
 
   return (
     <div className="cart">
@@ -58,7 +73,9 @@ const Cart = () => {
               <b>₹{getTotalCartAmount()===0?0:getTotalCartAmount()+50}</b>
             </div>
           </div>
-            <button onClick={()=>navigate('/order')}>PROCEED TO CHECKOUT</button>
+            <button onClick={proceedToCheckout}disabled={isOrdering}>
+              {isOrdering ? 'Process...' : 'PROCEED TO CHECKOUT'}
+              </button>
         </div>
         <div className="cart-promocode">
           <div>
