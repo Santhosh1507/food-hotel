@@ -1,9 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useState} from "react";
 import "./PlaceOrder.css";
 import { StoreContext } from "../../context/StoreContext";
 
+
 const PlaceOrder = () => {
   const { getTotalCartAmount } = useContext(StoreContext);
+  const [isOrdering, setIsOrdering] = useState(false);
+
+    const handleOrderClick = () => {
+        // Simulate order completion process
+        setIsOrdering(true);
+        setTimeout(() => {
+            // Navigate to the next page after 5 seconds
+            window.location.href = '/';
+        }, 3000);
+    };
+  
 
   return (
     <form className="place-order">
@@ -46,7 +58,10 @@ const PlaceOrder = () => {
               </b>
             </div>
           </div>
-          <button>PROCEED TO PAYMENT</button>
+          {/* <Link to="/"><button>PROCEED TO PAYMENT</button></Link> */}
+          <button onClick={handleOrderClick} disabled={isOrdering}>
+                {isOrdering ? 'Ordering...' : 'PROCEED TO PAYMENT'}
+          </button>
         </div>
       </div>
     </form>

@@ -10,6 +10,7 @@
     border-radius: 5px;
     border: 1px solid #b6b5b5;
     outline: none;
+    align-items: center;
 }
 .search-items img{
     padding: 10px 20px;
@@ -26,6 +27,8 @@
     outline: none;
     border: none;
     font-size: 16px;
+    background-color: black;
+    color: white;
 }
 .search hr{
     width: 80%;
