@@ -38,7 +38,7 @@ const PlaceOrder = () => {
 
     setIsOrdering(true);
     setTimeout(() => {
-      alert('Place Order complete!');
+      alert('Your Order complete!');
       window.location.href = '/';
     }, 5000);
   };
