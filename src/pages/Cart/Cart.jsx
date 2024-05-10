@@ -11,11 +11,13 @@ const Cart = () => {
   const proceedToCheckout = () => {
     setIsOrdering(true);
     if (getTotalCartAmount() === 0) {
-      alert("Please select items search.");
-      setIsOrdering(false);
       setTimeout(() => {
-        window.location.href = '/search';
-      }, 1000)
+        alert("Please select items search.");
+        setIsOrdering(false);
+        setTimeout(() => {
+          window.location.href = '/search';
+        }, 1000);
+      }, 2000);
     } else {
       setTimeout(() => {
         navigate('/order');
@@ -46,7 +48,7 @@ const Cart = () => {
                   <p>₹{item.price}</p>
                   <p>{cartItems[item._id]}</p>
                   <p>₹{item.price * cartItems[item._id]}</p>
-                  <p onClick={()=>removeFromCart(item._id)} className="cross">X</p>
+                  <p onClick={() => removeFromCart(item._id)} className="cross">X</p>
                 </div>
                 <hr />
               </div>
@@ -65,17 +67,17 @@ const Cart = () => {
             <hr />
             <div className="cart-total-details">
               <p>Delivery Fee</p>
-              <p>₹{getTotalCartAmount()===0?0:50}</p>
+              <p>₹{getTotalCartAmount() === 0 ? 0 : 50}</p>
             </div>
             <hr />
             <div className="cart-total-details">
               <b>Total</b>
-              <b>₹{getTotalCartAmount()===0?0:getTotalCartAmount()+50}</b>
+              <b>₹{getTotalCartAmount() === 0 ? 0 : getTotalCartAmount() + 50}</b>
             </div>
           </div>
-            <button onClick={proceedToCheckout}disabled={isOrdering}>
-              {isOrdering ? 'Process...' : 'PROCEED TO CHECKOUT'}
-              </button>
+          <button onClick={proceedToCheckout} disabled={isOrdering}>
+            {isOrdering ? 'Process...' : 'PROCEED TO CHECKOUT'}
+          </button>
         </div>
         <div className="cart-promocode">
           <div>
