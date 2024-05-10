@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "./FoodItem.css";
 import { assets } from "../../assets/assets";
 import { StoreContext } from "../../context/StoreContext";
+import { Link } from "react-router-dom";
 
 const FoodItem = ({ id, name, price, description, image }) => {
   const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
@@ -10,7 +11,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
     <div className="food-item">
       <div className="food-item-img-container">
         <img className="food-item-image" src={image} alt="" />
-        {/* {!cartItems[id] ? (
+        {!cartItems[id] ? (
           <img
             className="add"
             onClick={() => addToCart(id)}
@@ -31,9 +32,9 @@ const FoodItem = ({ id, name, price, description, image }) => {
               alt=""
             />
           </div>
-        )} */}
+        )}
       </div>
-      <div className="food-item-info">
+      <Link to="/search"><div className="food-item-info">
         <div className="food-item-name-rating">
           <p>{name}</p>
           <img src={assets.rating_starts} alt="" />
@@ -41,6 +42,7 @@ const FoodItem = ({ id, name, price, description, image }) => {
         <p className="food-item-desc">{description}</p>
         <p className="food-item-price">₹{price}</p>
       </div>
+      </Link>
     </div>
   );
 };

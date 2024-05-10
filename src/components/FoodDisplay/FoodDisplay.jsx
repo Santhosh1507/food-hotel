@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "./FoodDisplay.css";
 import FoodItem from "../FoodItem/FoodItem";
 import { StoreContext } from "../../context/StoreContext";
-import { Link } from "react-router-dom";
 
 const FoodDisplay = ({ category }) => {
   const { food_list } = useContext(StoreContext);
@@ -17,14 +16,14 @@ const FoodDisplay = ({ category }) => {
           }
           if (category === "All" || category === item.category) {
             return (
-            <Link to="/search">  <FoodItem
+              <FoodItem
                 key={index}
                 id={item._id}
                 name={item.name}
                 description={item.description}
                 price={item.price}
                 image={item.image}
-              /></Link>
+              />
             );
           }
         })}
