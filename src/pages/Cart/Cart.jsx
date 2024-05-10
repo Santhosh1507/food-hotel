@@ -15,12 +15,12 @@ const Cart = () => {
         alert("Please select items search.");
         setIsOrdering(false);
         setTimeout(() => {
-          window.location.href = '/search';
+          navigate("/search");
         }, 1000);
       }, 2000);
     } else {
       setTimeout(() => {
-        navigate('/order');
+        navigate("/order");
       }, 3000);
     }
   };
