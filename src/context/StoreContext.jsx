@@ -20,6 +20,10 @@ const StorecontextProvider = (props) => {
       setCartItems((prev)=>({...prev,[itemId]:prev[itemId]-1}))
     }
 
+    const removeAllCard = (itemId) => {
+      setCartItems((prev)=>({...prev,[itemId]:0}))
+    }
+
   const getTotalCartAmount =()=>{
     let totalAmount = 0;
     for(const item in cartItems){
@@ -37,7 +41,8 @@ const StorecontextProvider = (props) => {
     setCartItems,
     addToCart,
     removeFromCart,
-    getTotalCartAmount
+    getTotalCartAmount,
+    removeAllCard
   };
   return (
     <StoreContext.Provider value={contextValue}>

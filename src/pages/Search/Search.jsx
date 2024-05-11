@@ -53,7 +53,7 @@ const Search = () => {
                         src={assets.remove_icon_red}
                         alt=""
                       />
-                      <p>{cartItems[item._id]}</p>
+                      <p className="para-food-list">{cartItems[item._id]}</p>
                       <img
                         onClick={() => addToCart(item._id)}
                         src={assets.add_icon_green}

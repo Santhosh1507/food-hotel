@@ -2,6 +2,10 @@
     padding-top: 7rem;
     color: white;
 }
+
+.para-food-list{
+    color: black;
+}
 .search-items{
     width: 63%;
     margin: auto;
